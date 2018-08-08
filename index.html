@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Countdown Clock</title>
+</head>
+<body>
+ <div id="container">
+<h3> Countdown to Course Completion </h3>
+<p id="demo"></p>
+<h3> You Can Do It! </h3>
+</div>
+</body>
+
+<style>
+p {
+  text-align: center;
+  font-size: 80px;
+  margin-top:0px;
+}
+
+body {
+ background: #abedd8;
+ color: #fff;
+}
+
+h3 {
+ margin-top: 10px;
+ font-size: 40px;
+ font-family: Helvetica, sans-serif;
+ font-weight: bold;
+ text-align: center;
+}
+
+#container {
+
+ outline: 1px dashed #fcd77f;
+ outline-offset: -5px;
+
+ background-color: #46cdcf;
+ height: 400px;
+ width: 600px;
+ margin: 100px auto;
+
+
+ -webkit-box-shadow: 2px 2px 2px #000;
+ -moz-box-shadow: 2px 2px 2px #000;
+ box-shadow: 2px 2px 2px #000;
+}
+</style>
+
+<script>
+
+var countDownDate = new Date("Aug 8, 2018 23:59:59 UTC").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+
+
+    var distance = countDownDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
